@@ -25,6 +25,7 @@
 		<style>
         body {
             padding: 60px 0;
+            
         }
 		@section('styles')
 		@show
@@ -45,6 +46,7 @@
 	</head>
 
 	<body>
+            
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
                     

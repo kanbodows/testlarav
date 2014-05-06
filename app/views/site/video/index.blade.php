@@ -2,19 +2,17 @@
 
 {{-- Content --}}
 @section('content')
-<?php $i = 1 ; ?>
+
+    <?php $i = 1 ; ?>
 <div class="pull-right">
     <a href="{{{ URL::to('videos/v/create2') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Добавить</a>
 </div>
-<table>
 @foreach ($videos as $video)
-<?php if($i%2!=0) echo'<tr>'?>
-<td>
- 		<div class="row">
-	<div class="col-md-8">	                
+<?php if($i%2==1) echo '<div class="row">'?>
+	<div class="col-md-4">	                
 		<!-- Video Content -->
 		<div class="row">                    
-			<div class="col-md-6">
+			<div class="col-md-10">
                             <iframe width="320" height="215" src="{{ $video->link}}" frameborder="0" allowfullscreen></iframe>
 				<p>
 					{{ String::tidy(Str::limit($video->description, 200)) }}
@@ -35,11 +33,10 @@
 		</div>
 		<!-- ./ video footer -->
 	</div>
-                </div>
-</td>
-<?php if($i%2==0) echo'</tr>';
+
+<?php if($i%2==0) echo'</div><hr />';
         $i++;?>
 @endforeach
-</table>
-
+<div class="clearfix"></div>
+{{ $videos->links() }}
 @stop
